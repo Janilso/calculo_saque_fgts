@@ -3,6 +3,7 @@ import 'package:calculo_saque_aniversario/theme/app_colors.dart';
 import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
 import 'package:calculo_saque_aniversario/widgets/app_bar.dart';
 import 'package:calculo_saque_aniversario/widgets/input.dart';
+import 'package:calculo_saque_aniversario/widgets/result.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -101,67 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 24),
                 const InputWidget(labelText: 'Mês de nascimento'),
                 const SizedBox(height: 50),
-                Text(
-                  "Confira abaixo a previsão de ",
-                  style: AppTextStyles.h6Regular(
-                    color: AppColors.primary,
-                  ),
-                ),
-                Text(
-                  "seu Saque Aniversário:",
-                  style: AppTextStyles.h6Regular(
-                    color: AppColors.primary,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.topRight,
-                        colors: [
-                          AppColors.primary,
-                          AppColors.primary,
-                          AppColors.primaryLight
-                        ]),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                    left: 30,
-                    right: 30,
-                    bottom: 15,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Sua previsão é de sacar:",
-                        style: AppTextStyles.h6Regular(),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        "R\$ 1.912,00",
-                        style: AppTextStyles.h2SemiBold(),
-                      ),
-                      const SizedBox(height: 36),
-                      GestureDetector(
-                        onTap: () => _toAbout(context),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.info_outline, color: Colors.white),
-                            const SizedBox(width: 5),
-                            Text(
-                              "Veja aqui com o cálculo é feito",
-                              style: AppTextStyles.paragraphRegular(
-                                underline: true,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                ResultWidget(
+                  toAbout: () => _toAbout(context),
+                  value: 1912,
                 ),
                 const SizedBox(height: 48),
               ],

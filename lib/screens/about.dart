@@ -2,6 +2,7 @@ import 'package:calculo_saque_aniversario/theme/app_colors.dart';
 import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
 import 'package:calculo_saque_aniversario/utils/texts.dart';
 import 'package:calculo_saque_aniversario/widgets/app_bar.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -38,16 +39,8 @@ class AboutScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(
                           top: 0, left: 12, right: 12, bottom: 12),
-                      child: Flexible(
-                        child: Text(
-                          AppTexts.sobreApp[i].replaceAll("\n", ""),
-                          style: AppTextStyles.h6Regular(
-                            color: AppColors.primary,
-                          ),
-                          // softWrap: false,
-                          overflow: TextOverflow.fade,
-                        ),
-                      ),
+                      child:
+                          _buildText(AppTexts.sobreApp[i].replaceAll("\n", "")),
                     );
                   },
                 ),
@@ -70,23 +63,54 @@ class AboutScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(
                           top: 0, left: 12, right: 12, bottom: 12),
-                      child: Flexible(
-                        child: Text(
-                          AppTexts.sobreCalculo[i].replaceAll("\n", ""),
-                          style: AppTextStyles.h6Regular(
-                            color: AppColors.primary,
-                          ),
-                          // softWrap: false,
-                          overflow: TextOverflow.fade,
-                        ),
+                      child: _buildText(
+                        AppTexts.sobreCalculo[i].replaceAll("\n", ""),
+                        i == AppTexts.sobreCalculo.length - 2,
                       ),
                     );
                   },
                 ),
+                const SizedBox(height: 48),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildText(String text, [bool linked = false]) {
+    if (linked == true) {
+      List<String> listStr = text.split('/');
+
+      return RichText(
+        text: TextSpan(
+            text: listStr[0],
+            style: AppTextStyles.h6Regular(color: AppColors.primary),
+            children: [
+              TextSpan(
+                text: listStr[1],
+                style: AppTextStyles.h6Regular(
+                  color: AppColors.primary,
+                  underline: true,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    print("link Caixa");
+                  },
+              ),
+              TextSpan(
+                text: listStr[2],
+                style: AppTextStyles.h6Regular(color: AppColors.primary),
+              ),
+            ]),
+      );
+    }
+
+    return Text(
+      text,
+      style: AppTextStyles.h4Regular(
+        color: AppColors.primary,
       ),
     );
   }

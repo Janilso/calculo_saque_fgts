@@ -41,8 +41,8 @@ esse valor ao saldo atual que está em sua conta do FGTS.
     '''
 O total geral (incluindo o futuro e atual saldo) é usado 
 para determinar em qual alícota seu saldo se enquadra de 
-acordo com a tabela fornecida pela CAIXA (você pode 
-consultar clicando aqui). Por fim após essa verificação 
+acordo com a tabela fornecida pela CAIXA /(você pode 
+consultar clicando aqui)/. Por fim após essa verificação 
 podemos deteminar o valor que você sacará em seu mês de 
 aniversário.
     ''',

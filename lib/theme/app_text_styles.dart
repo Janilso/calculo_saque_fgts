@@ -60,7 +60,7 @@ class AppTextStyles {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: FontWeight.w400,
       height: 1,
       decoration: underline ? TextDecoration.underline : null,
@@ -71,7 +71,7 @@ class AppTextStyles {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: FontWeight.w600,
       height: 1,
       decoration: underline ? TextDecoration.underline : null,
@@ -82,7 +82,7 @@ class AppTextStyles {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: FontWeight.w700,
       height: 1,
       decoration: underline ? TextDecoration.underline : null,
