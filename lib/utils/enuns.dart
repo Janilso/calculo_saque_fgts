@@ -1,0 +1,4 @@
+enum TypeInput {
+  text,
+  date,
+}
