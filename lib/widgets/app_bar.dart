@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
+  final Widget? action;
 
   @override
   final Size preferredSize;
@@ -11,6 +12,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({
     Key? key,
     this.title,
+    this.action,
     this.preferredSize = const Size.fromHeight(48.0),
   }) : super(key: key);
 
@@ -24,10 +26,18 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           elevation: 6,
           shadowColor: Colors.black.withOpacity(0.5),
           backgroundColor: AppColors.primary,
+          leading: action != null ? Container(width: 24) : null,
           title: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: _buildTitle(title),
           ),
+          actions: [
+            if (action != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: action,
+              )
+          ],
           centerTitle: true,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(

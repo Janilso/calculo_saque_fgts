@@ -1,7 +1,9 @@
+import 'package:calculo_saque_aniversario/screens/about.dart';
 import 'package:calculo_saque_aniversario/theme/app_colors.dart';
 import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
 import 'package:calculo_saque_aniversario/widgets/app_bar.dart';
 import 'package:calculo_saque_aniversario/widgets/input.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,10 +24,22 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  void _toAbout(BuildContext context) {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(builder: (context) => const AboutScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(),
+      appBar: AppBarWidget(
+        action: GestureDetector(
+          onTap: () => _toAbout(context),
+          child: const Icon(Icons.info_outline),
+        ),
+      ),
       body: SafeArea(
         bottom: true,
         child: SingleChildScrollView(
@@ -132,16 +146,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 36),
                       GestureDetector(
-                        onTap: () {
-                          print("tap");
-                        },
+                        onTap: () => _toAbout(context),
                         child: Row(
                           children: [
                             const Icon(Icons.info_outline, color: Colors.white),
                             const SizedBox(width: 5),
                             Text(
                               "Veja aqui com o cálculo é feito",
-                              style: AppTextStyles.paragraphRegular(),
+                              style: AppTextStyles.paragraphRegular(
+                                underline: true,
+                              ),
                             ),
                           ],
                         ),

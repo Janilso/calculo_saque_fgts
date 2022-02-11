@@ -1,113 +1,137 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  static TextStyle h2SemiBold({Color color = Colors.white}) {
+  static TextStyle h2SemiBold({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 32,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h3Regular({Color color = Colors.white}) {
+  static TextStyle h3Regular({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 24,
       fontWeight: FontWeight.w400,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h3SemiBold({Color color = Colors.white}) {
+  static TextStyle h3SemiBold({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 24,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h4Regular({Color color = Colors.white}) {
+  static TextStyle h4Regular({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 20,
       fontWeight: FontWeight.w400,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h4SemiBold({Color color = Colors.white}) {
+  static TextStyle h4SemiBold({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 20,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h5Regular({Color color = Colors.white}) {
+  static TextStyle h5Regular({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.w400,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h5SemiBold({Color color = Colors.white}) {
+  static TextStyle h5SemiBold({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h6Regular({Color color = Colors.white}) {
+  static TextStyle h5Bold({Color color = Colors.white, underline = false}) {
+    return TextStyle(
+      fontFamily: "WorkSans",
+      color: color,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      height: 1,
+      decoration: underline ? TextDecoration.underline : null,
+    );
+  }
+
+  static TextStyle h6Regular({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.w400,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle h6SemiBold({Color color = Colors.white}) {
+  static TextStyle h6SemiBold({Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle paragraphRegular({Color color = Colors.white}) {
+  static TextStyle paragraphRegular(
+      {Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 12,
       fontWeight: FontWeight.w400,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
-  static TextStyle paragraphSemiBold({Color color = Colors.white}) {
+  static TextStyle paragraphSemiBold(
+      {Color color = Colors.white, underline = false}) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 12,
       fontWeight: FontWeight.w600,
       height: 1,
+      decoration: underline ? TextDecoration.underline : null,
     );
   }
 
