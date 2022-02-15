@@ -15,4 +15,6 @@ class AppContants {
     DateTime.november,
     DateTime.december,
   ];
+  static String linkTabelaFgts =
+      "https://www.caixa.gov.br/beneficios-trabalhador/fgts/saque-FGTS/Paginas/default.aspx";
 }

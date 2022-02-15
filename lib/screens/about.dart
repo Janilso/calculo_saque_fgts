@@ -1,9 +1,11 @@
 import 'package:calculo_saque_aniversario/theme/app_colors.dart';
 import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
+import 'package:calculo_saque_aniversario/utils/constants.dart';
 import 'package:calculo_saque_aniversario/utils/texts.dart';
 import 'package:calculo_saque_aniversario/widgets/app_bar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -95,8 +97,14 @@ class AboutScreen extends StatelessWidget {
                   underline: true,
                 ),
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () {
+                  ..onTap = () async {
                     print("link Caixa");
+                    if (await canLaunch(AppContants.linkTabelaFgts)) {
+                      await launch(
+                        AppContants.linkTabelaFgts,
+                        forceSafariVC: false,
+                      );
+                    }
                   },
               ),
               TextSpan(
