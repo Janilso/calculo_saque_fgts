@@ -17,6 +17,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
+  extended_masked_text: ^2.3.1
+  month_year_picker: ^0.1.0+1
 
 dev_dependencies:
   flutter_test:

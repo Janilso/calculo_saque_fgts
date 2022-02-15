@@ -100,17 +100,6 @@ class AppTextStyles {
     );
   }
 
-  static TextStyle h6SemiBold({Color color = Colors.white, underline = false}) {
-    return TextStyle(
-      fontFamily: "WorkSans",
-      color: color,
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-      height: 1,
-      decoration: underline ? TextDecoration.underline : null,
-    );
-  }
-
   static TextStyle paragraphRegular(
       {Color color = Colors.white, underline = false}) {
     return TextStyle(
@@ -118,18 +107,6 @@ class AppTextStyles {
       color: color,
       fontSize: 12,
       fontWeight: FontWeight.w400,
-      height: 1,
-      decoration: underline ? TextDecoration.underline : null,
-    );
-  }
-
-  static TextStyle paragraphSemiBold(
-      {Color color = Colors.white, underline = false}) {
-    return TextStyle(
-      fontFamily: "WorkSans",
-      color: color,
-      fontSize: 12,
-      fontWeight: FontWeight.w600,
       height: 1,
       decoration: underline ? TextDecoration.underline : null,
     );

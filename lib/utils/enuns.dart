@@ -1,4 +1,4 @@
 enum TypeInput {
   text,
-  date,
+  select,
 }

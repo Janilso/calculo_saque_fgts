@@ -2,6 +2,7 @@ import 'package:calculo_saque_aniversario/screens/splash.dart';
 import 'package:calculo_saque_aniversario/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:month_year_picker/month_year_picker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        MonthYearPickerLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('pt', 'BR')],
+      // supportedLocales: const [Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       home: const SplashScreen(),

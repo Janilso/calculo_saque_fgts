@@ -9,11 +9,7 @@ class AppFormats {
     return NumberFormat.simpleCurrency(locale: 'pt_BR').format(value);
   }
 
-  static String onlyNumberFromString([String value = '']) {
-    return value.replaceAll(RegExp(r'[^0-9]'), '');
-  }
-
-  static double stringMoneyToDouble([String value = '']) {
+  static double stringMoneyToDouble([String value = 'R\$ 0,00']) {
     return double.parse(
         value.replaceAll('R\$ ', '').replaceAll('.', '').replaceAll(',', '.'));
   }

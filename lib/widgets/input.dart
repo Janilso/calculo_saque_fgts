@@ -1,14 +1,17 @@
+import 'package:calculo_saque_aniversario/models/optionSelect.dart';
 import 'package:calculo_saque_aniversario/theme/app_colors.dart';
 import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
 import 'package:calculo_saque_aniversario/utils/enuns.dart';
+import 'package:calculo_saque_aniversario/utils/formats.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:month_year_picker/month_year_picker.dart';
 
-class InputWidget extends StatelessWidget {
+class InputWidget extends StatefulWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final FormFieldValidator<String>? validator;
-  // final bool label;
   final bool enabled;
   final bool autofocus;
   final String labelText;
@@ -19,6 +22,8 @@ class InputWidget extends StatelessWidget {
   final bool valueSWitch;
   final int initialValue;
   final List<TextInputFormatter>? inputFormatters;
+  final DateTime? valueDate;
+  final List<OptionSelect>? optiosSelect;
 
   const InputWidget({
     Key? key,
@@ -35,7 +40,16 @@ class InputWidget extends StatelessWidget {
     this.valueSWitch = false,
     this.inputFormatters,
     this.initialValue = 1,
+    this.valueDate,
+    this.optiosSelect,
   }) : super(key: key);
+
+  @override
+  State<InputWidget> createState() => _InputWidgetState();
+}
+
+class _InputWidgetState extends State<InputWidget> {
+  String? _valueSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +76,7 @@ class InputWidget extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    labelText,
+                    widget.labelText,
                     style: AppTextStyles.h6Regular(color: AppColors.primary),
                   ),
                 ),
@@ -81,46 +95,84 @@ class InputWidget extends StatelessWidget {
     );
 
     // Size sizeScreen = MediaQuery.of(context).size;
-    // if (type == TypeInput.text) {
-    return TextFormField(
-      inputFormatters: inputFormatters,
-      autofocus: autofocus,
-      decoration: InputDecoration(
-        alignLabelWithHint: true,
-        fillColor: fillColor,
-        hintText: hintText,
-        hintStyle: AppTextStyles.h6Regular(
-          color: AppColors.primary,
+    if (widget.type == TypeInput.text) {
+      return TextFormField(
+        inputFormatters: widget.inputFormatters,
+        autofocus: widget.autofocus,
+        decoration: InputDecoration(
+          alignLabelWithHint: true,
+          fillColor: widget.fillColor,
+          hintText: widget.hintText,
+          hintStyle: AppTextStyles.h6Regular(
+            color: AppColors.primaryLight,
+          ),
+          enabledBorder: disabledBorder,
+          focusedBorder: disabledBorder,
+          errorBorder: disabledBorder,
+          focusedErrorBorder: disabledBorder,
         ),
-        enabledBorder: disabledBorder,
-        focusedBorder: disabledBorder,
-        errorBorder: disabledBorder,
-        focusedErrorBorder: disabledBorder,
-      ),
-      controller: controller,
-      keyboardType: keyboardType,
-      validator: validator,
-      onChanged: onChange,
-      enabled: enabled,
-      cursorColor: AppColors.primary,
-      textAlign: TextAlign.right,
-      style: AppTextStyles.h6Regular(color: AppColors.primary),
-    );
-    // }
-    // else if (type == TypeInput.switchh) {
-    //   return Row(
-    //     mainAxisAlignment: MainAxisAlignment.end,
-    //     children: [
-    //       Switch(
-    //         value: valueSWitch,
-    //         onChanged: onChange,
-    //         activeTrackColor: isDanger
-    //             ? AppColors.secondary.withOpacity(0.4)
-    //             : AppColors.primary.withOpacity(0.4),
-    //         activeColor: isDanger ? AppColors.secondary : AppColors.primary,
-    //       ),
-    //     ],
-    //   );
-    // }
+        controller: widget.controller,
+        keyboardType: widget.keyboardType,
+        validator: widget.validator,
+        onChanged: widget.onChange,
+        enabled: widget.enabled,
+        cursorColor: AppColors.primary,
+        textAlign: TextAlign.right,
+        style: AppTextStyles.h6Regular(color: AppColors.primaryLight),
+      );
+    } else if (widget.type == TypeInput.select && widget.optiosSelect != null) {
+      return InputDecorator(
+        decoration: InputDecoration(
+          alignLabelWithHint: true,
+          fillColor: widget.fillColor,
+          enabledBorder: disabledBorder,
+          focusedBorder: disabledBorder,
+          errorBorder: disabledBorder,
+          focusedErrorBorder: disabledBorder,
+        ),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton(
+            value: _valueSelect,
+            isDense: true,
+            onChanged: (newValue) {
+              setState(() {
+                _valueSelect = newValue.toString();
+              });
+              widget.onChange!(newValue.toString());
+            },
+            hint: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  widget.hintText,
+                  style: AppTextStyles.h6Regular(color: AppColors.primaryLight),
+                )
+              ],
+            ),
+            style: AppTextStyles.h6Regular(color: AppColors.primaryLight),
+            alignment: Alignment.center,
+            selectedItemBuilder: (context) {
+              return widget.optiosSelect!.map((e) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [Text(e.name)],
+                );
+              }).toList();
+            },
+            icon: const Icon(Icons.arrow_drop_down,
+                color: AppColors.primaryLight),
+            isExpanded: true,
+            items: widget.optiosSelect!.map((OptionSelect option) {
+              return DropdownMenuItem(
+                value: option.value.toString(),
+                child: Text(option.name),
+              );
+            }).toList(growable: false),
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
   }
 }
