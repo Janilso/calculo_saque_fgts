@@ -1,5 +1,5 @@
 name: calculo_saque_aniversario
-description: A new Flutter project.
+description: Aplicativo para cálculo do saque aniversário.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -24,7 +24,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^1.0.0
   flutter_launcher_icons: ^0.9.2
 
