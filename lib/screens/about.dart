@@ -88,17 +88,14 @@ class AboutScreen extends StatelessWidget {
       return RichText(
         text: TextSpan(
             text: listStr[0],
-            style: AppTextStyles.h6Regular(color: AppColors.primary),
+            style: AppTextStyles.h5Regular(color: AppColors.primary),
             children: [
               TextSpan(
                 text: listStr[1],
-                style: AppTextStyles.h6Regular(
-                  color: AppColors.primary,
-                  underline: true,
-                ),
+                style: AppTextStyles.h5Regular(
+                    color: AppColors.primary, underline: true),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
-                    print("link Caixa");
                     if (await canLaunch(AppContants.linkTabelaFgts)) {
                       await launch(
                         AppContants.linkTabelaFgts,
@@ -109,7 +106,7 @@ class AboutScreen extends StatelessWidget {
               ),
               TextSpan(
                 text: listStr[2],
-                style: AppTextStyles.h6Regular(color: AppColors.primary),
+                style: AppTextStyles.h5Regular(color: AppColors.primary),
               ),
             ]),
       );
@@ -117,7 +114,7 @@ class AboutScreen extends StatelessWidget {
 
     return Text(
       text,
-      style: AppTextStyles.h4Regular(
+      style: AppTextStyles.h5Regular(
         color: AppColors.primary,
       ),
     );
