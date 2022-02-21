@@ -5,6 +5,7 @@ import 'package:calculo_saque_aniversario/theme/app_text_styles.dart';
 import 'package:calculo_saque_aniversario/utils/imagens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -25,6 +26,11 @@ class _SplashScreen extends State<SplashScreen> with TickerProviderStateMixin {
               )
             });
     super.initState();
+  }
+
+  Future<String> _getVersionApp() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    return packageInfo.version;
   }
 
   @override
@@ -74,12 +80,35 @@ class _SplashScreen extends State<SplashScreen> with TickerProviderStateMixin {
       ),
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 50),
-            child: CircularProgressIndicator(
-              backgroundColor: Colors.white,
-              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const CircularProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                ),
+                FutureBuilder(
+                  future: _getVersionApp(),
+                  builder: (context, AsyncSnapshot<String> snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const SizedBox(height: 10),
+                          Text(
+                            'Versão ${snapshot.data}',
+                            style: AppTextStyles.h6Regular(),
+                          )
+                        ],
+                      );
+                    }
+                    return Container();
+                  },
+                )
+              ],
             ),
           )
         ],
