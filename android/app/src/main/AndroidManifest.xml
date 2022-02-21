@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.calculo_saque_aniversario">
+    package="com.janilsorodrigues.calculo_saque_aniversario">
 
  <!-- Provide required visibility configuration for API level 30 and above -->
   <queries>
