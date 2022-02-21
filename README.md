@@ -1,5 +1,9 @@
 # ✅ Cálculo Saque Aniversário
 
+## 📱 App
+
+![Video do aplicativo](https://i.imgur.com/XR6akYD.gif)
+
 ## 💻 Sobre:
 
 ```
