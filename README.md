@@ -2,7 +2,7 @@
 
 ## 📱 App
 
-![Video do aplicativo](https://i.imgur.com/XR6akYD.gif)
+![Video do aplicativo](https://i.imgur.com/08mgdwv.gif)
 
 ## 💻 Sobre:
 
