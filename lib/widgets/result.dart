@@ -43,12 +43,8 @@ class ResultWidget extends StatelessWidget {
                 ]),
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
-          padding: const EdgeInsets.only(
-            top: 30,
-            left: 30,
-            right: 30,
-            bottom: 15,
-          ),
+          padding:
+              const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

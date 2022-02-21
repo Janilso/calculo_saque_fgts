@@ -168,13 +168,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  month_year_picker:
-    dependency: "direct main"
-    description:
-      name: month_year_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0+1"
   path:
     dependency: transitive
     description:
