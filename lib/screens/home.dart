@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _ctrSalario =
       MoneyMaskedTextController(leftSymbol: 'R\$ ', initialValue: 0);
   List<OptionSelect>? optionSelect;
-  String? _mesAniversarrio;
+  String? _mesAniversario;
   double _resultCalc = 0.0;
   DateTime dateNow = DateTime.now();
 
@@ -76,8 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
     double totalAtualFgts =
         AppFormats.stringMoneyToDouble(_ctrSaldoFgts.text) * 1.0;
     double fgts = AppFormats.stringMoneyToDouble(_ctrSalario.text) * 0.08;
-    if (_mesAniversarrio != null || month != null) {
-      int monthBirthday = int.parse(month ?? _mesAniversarrio);
+    if (_mesAniversario != null || month != null) {
+      int monthBirthday = int.parse(month ?? _mesAniversario);
       bool isNextYear = monthBirthday <= dateNow.month;
       int diffMonths = (isNextYear
               ? 12 - (dateNow.month - monthBirthday)
@@ -93,6 +93,13 @@ class _HomeScreenState extends State<HomeScreen> {
         _resultCalc = result;
       });
     }
+  }
+
+  @override
+  void didUpdateWidget(covariant HomeScreen oldWidget) {
+    print("oldWidget $oldWidget");
+
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -176,7 +183,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   hintText: 'Mês',
                   type: TypeInput.select,
                   optiosSelect: optionSelect,
-                  onChange: (value) => _calcSac(value),
+                  onChange: (value) {
+                    setState(() {
+                      _mesAniversario = value;
+                    });
+                    _calcSac(value);
+                  },
                 ),
                 const SizedBox(height: 50),
                 ResultWidget(
