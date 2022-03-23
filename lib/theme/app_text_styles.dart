@@ -100,6 +100,17 @@ class AppTextStyles {
     );
   }
 
+  static TextStyle h6Bold({Color color = Colors.white, underline = false}) {
+    return TextStyle(
+      fontFamily: "WorkSans",
+      color: color,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      height: 1,
+      decoration: underline ? TextDecoration.underline : null,
+    );
+  }
+
   static TextStyle paragraphRegular(
       {Color color = Colors.white, underline = false}) {
     return TextStyle(

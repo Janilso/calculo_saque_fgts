@@ -14,6 +14,8 @@ uma previsão do Saque Aniversário de sua conta do FGTS.
 
 ## 🔗 Link do protótipo: [Clique aqui](https://www.figma.com/file/ngI44LucubwUF82bSHY0xq/?node-id=0%3A1)
 
+## 🔗 Link do App no Google Play: [Clique aqui](https://play.google.com/store/apps/details?id=com.janilsorodrigues.calculo_saque_aniversario&hl=pt_BR)
+
 <br>
 
 ## ✨ Principais dependências

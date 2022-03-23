@@ -26,11 +26,11 @@ class AboutScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       text: 'Sobre o ',
-                      style: AppTextStyles.h5Regular(color: AppColors.primary),
+                      style: AppTextStyles.h6Regular(color: AppColors.primary),
                       children: [
                         TextSpan(
                           text: 'APP:',
-                          style: AppTextStyles.h5Bold(color: AppColors.primary),
+                          style: AppTextStyles.h6Bold(color: AppColors.primary),
                         ),
                       ]),
                 ),
@@ -50,11 +50,11 @@ class AboutScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       text: 'Sobre o ',
-                      style: AppTextStyles.h5Regular(color: AppColors.primary),
+                      style: AppTextStyles.h6Regular(color: AppColors.primary),
                       children: [
                         TextSpan(
                           text: 'Cálculo:',
-                          style: AppTextStyles.h5Bold(color: AppColors.primary),
+                          style: AppTextStyles.h6Bold(color: AppColors.primary),
                         ),
                       ]),
                 ),
@@ -88,11 +88,11 @@ class AboutScreen extends StatelessWidget {
       return RichText(
         text: TextSpan(
             text: listStr[0],
-            style: AppTextStyles.h5Regular(color: AppColors.primary),
+            style: AppTextStyles.h6Regular(color: AppColors.primary),
             children: [
               TextSpan(
                 text: listStr[1],
-                style: AppTextStyles.h5Regular(
+                style: AppTextStyles.h6Regular(
                     color: AppColors.primary, underline: true),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
@@ -106,16 +106,18 @@ class AboutScreen extends StatelessWidget {
               ),
               TextSpan(
                 text: listStr[2],
-                style: AppTextStyles.h5Regular(color: AppColors.primary),
+                style: AppTextStyles.h6Regular(color: AppColors.primary),
               ),
             ]),
       );
     }
 
-    return Text(
-      text,
-      style: AppTextStyles.h5Regular(
-        color: AppColors.primary,
+    return RichText(
+      text: TextSpan(
+        text: text,
+        style: AppTextStyles.h6Regular(
+          color: AppColors.primary,
+        ),
       ),
     );
   }
