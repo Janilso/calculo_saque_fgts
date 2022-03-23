@@ -82,18 +82,25 @@ class AboutScreen extends StatelessWidget {
   }
 
   Widget _buildText(String text, [bool linked = false]) {
+    double heihtLine = 1.3;
     if (linked == true) {
       List<String> listStr = text.split('/');
 
       return RichText(
         text: TextSpan(
             text: listStr[0],
-            style: AppTextStyles.h6Regular(color: AppColors.primary),
+            style: AppTextStyles.h6Regular(
+              color: AppColors.primary,
+              height: heihtLine,
+            ),
             children: [
               TextSpan(
                 text: listStr[1],
                 style: AppTextStyles.h6Regular(
-                    color: AppColors.primary, underline: true),
+                  color: AppColors.primary,
+                  underline: true,
+                  height: heihtLine,
+                ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                     if (await canLaunch(AppContants.linkTabelaFgts)) {
@@ -106,7 +113,10 @@ class AboutScreen extends StatelessWidget {
               ),
               TextSpan(
                 text: listStr[2],
-                style: AppTextStyles.h6Regular(color: AppColors.primary),
+                style: AppTextStyles.h6Regular(
+                  color: AppColors.primary,
+                  height: heihtLine,
+                ),
               ),
             ]),
       );
@@ -117,6 +127,7 @@ class AboutScreen extends StatelessWidget {
         text: text,
         style: AppTextStyles.h6Regular(
           color: AppColors.primary,
+          height: heihtLine,
         ),
       ),
     );

@@ -89,13 +89,17 @@ class AppTextStyles {
     );
   }
 
-  static TextStyle h6Regular({Color color = Colors.white, underline = false}) {
+  static TextStyle h6Regular({
+    Color color = Colors.white,
+    underline = false,
+    double height = 1,
+  }) {
     return TextStyle(
       fontFamily: "WorkSans",
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      height: 1,
+      height: height,
       decoration: underline ? TextDecoration.underline : null,
     );
   }

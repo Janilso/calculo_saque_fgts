@@ -1,14 +1,14 @@
 class AppTexts {
   static List<String> sobreApp = [
     '''
-O aplicativo Cálculo Saque Aniversário não tem qualquer
+O aplicativo Cálculo Saque Aniversário não tem qualquer 
 relação com a instituição estatal CAIXA ou qualquer 
 órgão governamental ou financeiro.
     ''',
     '''
 O aplicativo é sem fins lucrativos e não armazenamos 
 qualquer tipo de dado fornecido pelo usuário. Todos 
-os dados solicitados são para uso exclusivo de nessa 
+os dados solicitados são para uso exclusivo de nossa 
 calculadora do Saque Aniversário. 
     ''',
   ];
